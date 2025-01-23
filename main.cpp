@@ -13,30 +13,31 @@ using std::chrono::duration_cast;
 int main()
 {
 
- steady_clock::time_point startTime = steady_clock::now();
-   const unsigned long int datasetSize = 10;
-   const std::string filepath = "dominoes-test_data/10/10-input.txt";
+
+   const unsigned long int datasetSize = 60000;
+   const std::string filepath = "dominoes-test_data/60000/60000-input.txt";
 
    std::ifstream theInputStream(filepath);
    if (! theInputStream.good()) throw std::invalid_argument("Cannot read from specified file.");
 
-
+    steady_clock::time_point startTime = steady_clock::now();
    DominoLineBuilder theDominoLine(datasetSize,theInputStream);
-
-
-
-    theDominoLine.nextRight();
-    //
-     theDominoLine.nextRight();
-    //
-
-     while (theDominoLine.nextRight());
-
-
-   theDominoLine.displayLine(std::cout);
  steady_clock::time_point finishTime = steady_clock::now();
 
  nanoseconds timeTaken = duration_cast<nanoseconds>(finishTime - startTime);
+
+
+
+
+     // theDominoLine.nextRight();
+     //
+     //  theDominoLine.nextRight();
+
+    //
+    //  while (theDominoLine.nextRight());
+
+
+   theDominoLine.displayLine(std::cout);
 
 
 

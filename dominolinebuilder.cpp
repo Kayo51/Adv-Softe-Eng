@@ -1,6 +1,10 @@
 #include "dominolinebuilder.h"
-#include <unordered_map>
-std::unordered_map<std::string, Domino*> dominoMap;
+#include <map>
+#include <set>
+
+
+
+std::map<std::string, Domino*> dominoMap;
 Domino::Domino(std::string theBlueSymbol, std::string theRedSymbol)
 {
    blueSymbol = theBlueSymbol;
@@ -23,6 +27,8 @@ DominoLineBuilder::DominoLineBuilder(unsigned long int totalNumberOfDominoes, st
       dominoMap[aBlueSymbol] = newDomino;
    }
 }
+
+
 
 
 
@@ -81,6 +87,7 @@ bool DominoLineBuilder::nextRight()
 
    return false;
 }
+
 void DominoLineBuilder::displayLine(std::ostream& outputStream)
 {
    for (Domino eachDomino : orderedLine)
